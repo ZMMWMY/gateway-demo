@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gateway-web" />
+        <module name="gateway-client" />
+        <module name="gateway-admin" />
+        <module name="gateway-dashboard" />
+        <module name="gateway-common" />
+        <module name="dubbo-provider" />
+        <module name="gateway-examples" />
+        <module name="gateway-core" />
+        <module name="gateway-bootstrap" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gateway-examples-dubbo-provider" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gateway-admin" options="" />
+      <module name="gateway-bootstrap" options="" />
+      <module name="gateway-client" options="" />
+      <module name="gateway-common" options="" />
+      <module name="gateway-core" options="" />
+      <module name="gateway-dashboard" options="" />
+      <module name="gateway-web" options="" />
+    </option>
+  </component>
+</project>

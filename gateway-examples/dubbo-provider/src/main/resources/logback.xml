@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation) See here for more 
+	details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<configuration scan="true" scanPeriod="30 seconds">
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<root level="info">
+		<appender-ref ref="kafkaAppender" />
+	</root>
+
+	<!-- 打印执行SQL的配置(请修改 root 对应的LEVEL为DEBUG), MyBatis 3 的日志输出只支持DEBUG级别 -->
+	<logger name="com.ibatis" level="WARN" />
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="WARN" />
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" level="WARN" />
+    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="WARN" />
+    <logger name="java.sql.Connection" level="WARN" />
+    <logger name="java.sql.Statement" level="WARN" />
+    <logger name="java.sql.PreparedStatement" level="WARN" />
+    
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.opensymphony" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILEINFO" />
+		<appender-ref ref="FILEWARN" />
+		<appender-ref ref="FILEERROR" />
+<!--		<appender-ref ref="kafkaAppender"/>-->
+	</root>
+</configuration>

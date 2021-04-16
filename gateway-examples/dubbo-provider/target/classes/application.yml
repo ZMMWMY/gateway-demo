@@ -1,0 +1,22 @@
+# 配置端口
+spring.application.name: dubbo-provider
+server.port: 7071
+
+#指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+dubbo.application.name: dubbo-provider
+
+#logging:
+#  level: trace
+dubbo.protocol.name: dubbo
+dubbo.protocol.port: 20880
+
+  #指定注册中心的位置
+dubbo.registry.address: zookeeper://172.19.215.158:2181
+
+  #统一设置服务提供方的规则
+dubbo.provider.timeout: 1000
+dubbo:
+  scan:
+    base-packages: com.zmmwmy
+  provider:
+    version: 1.0.0
